@@ -1,0 +1,74 @@
+1.
+#include<iostream>
+using namespace std;
+
+int main()
+
+{
+    char ch[100];
+    bool isNumeric=true;
+    cin>>ch;
+
+    for(int i=0;ch[i]!='\0';i++)
+    {
+        if(ch[i]<'0' || ch[i]>'9')
+            {
+                isNumeric=false;
+            }
+    }
+    if(isNumeric)
+    {
+        cout<<"Numeric constant";
+    }
+    else
+        cout<<"Not Numeric constant";
+}
+
+2.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    char ch[100];
+    cin>>ch;
+    int count=0;
+
+    for(int i=0;ch[i]!=0;i++)
+    {
+        if(ch[i]=='+'|| ch[i]=='-'||ch[i]=='*'|| ch[i]=='%'|| ch[i]=='=')
+
+        {
+             count++;
+        }
+
+       cout<<"Operator"<<count<<":"<<ch[i]<<endl;
+    }
+
+}
+
+
+3.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string str;
+    cin>>str;
+
+    if((str[0 =='/')&&(str[1]=='/'))
+    {
+        cout<<"single line comment"<<endl;
+    }
+    else if((str[0] =='/')&&(str[1]=='*'))
+    {
+        cout<<"Multiple line comment"<<endl;
+    }
+
+    return 0;
+}
+
+
+
+
