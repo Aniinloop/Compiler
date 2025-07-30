@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ifstream f("C:\\Users\\atkiy\\OneDrive\\Desktop\\Tokenization\\atkiya.txt");
+
+    if (!f.is_open())
+    {
+        cout << "Could not open the file!" << endl;
+        return 0;
+    }
+
+    string s;
+
+    while (getline(f,s))
+    {
+        if (s=="int" || s=="float" ||s=="double" ||s=="char" || s=="string" || s=="if" || s=="else" || s=="do" || s=="while" || s=="true" || s=="false" || s=="bool")
+        {
+            cout<<s<<"is a keyword"<<endl;
+        }
+        else if (s=="+" || s=="-" || s=="/" || s=="++" || s=="--" ||
+                 s =="+=" || s=="/=" || s== "-=" || s=="=")
+        {
+            cout<<s<<"is a operator"<<endl;
+        }
+        else
+        {
+            bool validity=true;
+            if (s.empty())
+            {
+                validity=false;
+            }
+            else
+            {
+                char ch =s[0];
+                if (!((ch>='A' && ch<='Z') || (ch>='a' && ch<='z') || ch=='_'))
+                {
+                    validity=false;
+                }
+
+                for (int i=1;i<(int)s.length();i++)
+                {
+                    ch=s[i];
+                    if (!((ch>='A' &&ch<='Z') || (ch>='a' && ch<='z') || (ch>='0' && ch<='9') || ch=='_'))
+                    {
+                        validity=false;
+                        break;
+                    }
+                }
+            }
+
+            if (validity)
+            {
+                cout<<s<<"is an identifier"<<endl;
+            }
+            else
+            {
+                cout<<s<<" is not an identifier"<<endl;
+            }
+        }
+    }
+
+    f.close();
+
+}
