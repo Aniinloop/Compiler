@@ -69,6 +69,54 @@ int main()
     return 0;
 }
 
+4.
+#include <iostream>
+using namespace std;
+
+int main()
+ {
+    string str;
+    bool isValid = true;
+    getline(cin,str);
+
+    if(str.length()==0)
+    {
+        isValid = false;
+    }
+    else
+    {
+        char ch=str[0];
+        if(!(ch>='A' && ch<='Z'||ch>='a' && ch<='z' || ch=='_'))
+    {
+            isValid=false;
+    }
+
+        for(int i=1;i<str.length();i++)
+        {
+            ch=str[i];
+            if (!(ch>='A' && ch<='Z' ||ch>='a' && ch<='z'||
+                  ch>='0' && ch<='9'|| ch=='_'))
+            {
+                isValid=false;
+                break;
+            }
+        }
+    }
+
+    if(isValid)
+    {
+        cout<<str<<"Is a valid identifier"<<endl;
+    }
+    else
+    {
+        cout<<str<<"Is not a valid identifier"<<endl;
+    }
+
+
+}
+
+
+
 
 
 
